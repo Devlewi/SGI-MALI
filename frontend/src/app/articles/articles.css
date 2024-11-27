@@ -1,0 +1,23 @@
+/* src/app/articles/articles.css */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .card img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .card h3 {
+    margin-top: 10px;
+  }
+  

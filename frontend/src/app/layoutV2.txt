@@ -1,0 +1,172 @@
+'use client';
+
+import {useEffect } from "react";
+import localFont from "next/font/local";
+import Link from "next/link";
+import "./globals.css";
+
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  useEffect(() => {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Vérifie si le menu hamburger et la liste des liens sont présents
+    if (mobileMenu && navLinks) {
+      mobileMenu.addEventListener('click', () => {
+        // Ajoute ou enlève la classe 'active' pour afficher ou masquer le menu
+        navLinks.classList.toggle('active');
+      });
+    }
+  }, []);
+
+  return (
+    <html lang="fr">
+      <head>
+        {/* Polices Google */}
+        <link 
+          href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&subset=devanagari,latin-ext" 
+          rel="stylesheet"
+        />
+        
+        {/* Icônes */}
+        <link 
+          rel="stylesheet" 
+          href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" 
+        />
+        <link 
+          rel="stylesheet" 
+          href="https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css" 
+        />
+        <link 
+          rel="stylesheet" 
+          href="https://cdn-uicons.flaticon.com/uicons-thin-straight/css/uicons-thin-straight.css" 
+        />
+
+
+          <link rel="stylesheet" href="/fonts/IcoMoon/icomoon.css" />
+          <link rel="stylesheet" href="/fonts/linearicon/style.css" />
+          <link type="text/css" rel="stylesheet" href="/css/jquery.mmenu.all.css" />
+          <link rel="stylesheet" href="/css/magnific-popup.css" />
+          <link rel="stylesheet" href="/css/owl.carousel.css"/>
+
+
+
+          <link rel="stylesheet" href="/css/fancySelect.css" media="screen"/>
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/revolution/css/settings.css"
+          />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/revolution/css/layers.css"
+          />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/revolution/css/navigation.css"
+          />
+          
+          <link
+            rel="stylesheet"
+            href="/css/main.css"
+            type="text/css"
+          />
+ 
+ {/* Scripts Externes - Chargés globalement */}
+ <script src="/js/vendor/jquery.min.js" />
+
+ <script
+          type="text/javascript"
+          src="/revolution/js/extensions/revolution.extension.video.min.js"
+        />
+
+<script
+          type="text/javascript"
+          src="/revolution/js/extensions/revolution.extension.slideanims.min.js"
+        />
+
+<script
+          type="text/javascript"
+          src="/revolution/js/extensions/revolution.extension.parallax.min.js"
+        />
+
+<script
+          type="text/javascript"
+          src="/revolution/js/extensions/revolution.extension.layeranimation.min.js"
+        />
+        <script
+          type="text/javascript"
+          src="/revolution/js/extensions/revolution.extension.migration.min.js"
+        />
+        <script
+          type="text/javascript"
+          src="/revolution/js/extensions/revolution.extension.navigation.min.js"
+        />
+
+<script
+          type="text/javascript"
+          src="/revolution/js/extensions/revolution.extension.actions.min.js"
+        />
+        <script
+          type="text/javascript"
+          src="/revolution/js/extensions/revolution.extension.carousel.min.js"
+        />
+        <script
+          type="text/javascript"
+          src="/revolution/js/extensions/revolution.extension.kenburn.min.js"
+        />
+
+         {/* Scripts Externes - Chargés globalement */}
+         <script src="/js/vendor/jquery.min.js" />
+        <script src="/js/vendor/bootstrap.js" />
+        <script
+          type="text/javascript"
+          src="/js/plugins/jquery.mmenu.all.min.js"
+        />
+        <script type="text/javascript" src="/js/plugins/mobilemenu.js" />
+        <script
+          type="text/javascript"
+          src="/revolution/js/jquery.themepunch.tools.min.js"
+        />
+        <script
+          type="text/javascript"
+          src="/revolution/js/jquery.themepunch.revolution.min.js"
+        />
+      </head>
+      <body className="">
+        {/* Menu global */}
+
+       
+
+        {/* Contenu principal */}
+        <div className="main-content">
+          {children}
+        </div>
+
+        {/* Footer global */}
+        {/*
+        <footer>
+          <p>Footer ici</p>
+        </footer>
+        */}
+      </body>
+    </html>
+  );
+}
